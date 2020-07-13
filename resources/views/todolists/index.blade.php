@@ -21,6 +21,7 @@
                 <tr>
                     {{-- todo詳細ページへのリンク --}}
                     <td>{!! link_to_route('todolists.show', $todolist->id, ['todolist' => $todolist->id]) !!}</td>
+                    <td>{{ $todolist->title }}</td>
                     <td>{{ $todolist->content }}</td>
                 </tr>
                 @endforeach

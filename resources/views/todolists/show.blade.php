@@ -10,6 +10,10 @@
             <td>{{ $todolist->id }}</td>
         </tr>
         <tr>
+            <th>タイトル</th>
+            <td>{{ $todolist->title }}</td>
+        </tr>
+        <tr>
             <th>todo</th>
             <td>{{ $todolist->content }}</td>
         </tr>

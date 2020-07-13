@@ -48,11 +48,13 @@ class TodolistsController extends Controller
     {   
         // バリデーション
         $request->validate([
+            'title' => 'required|max:255',   // 追加
             'content' => 'required|max:255',
         ]);
         
        // todoを作成
         $todolist = new Todolist;
+        $todolist->title = $request->title;    // 追加
         $todolist->content = $request->content;
         $todolist->save();
 
@@ -105,12 +107,14 @@ class TodolistsController extends Controller
     {
         // バリデーション
         $request->validate([
+            'title' => 'required|max:255',   // 追加
             'content' => 'required|max:255',
         ]);
         
         // idの値でtodoを検索して取得
         $todolist = Todolist::findOrFail($id);
         // todoを更新
+        $todolist->title = $request->title;    // 追加
         $todolist->content = $request->content;
         $todolist->save();
 
