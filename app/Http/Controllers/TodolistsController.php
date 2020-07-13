@@ -45,7 +45,12 @@ class TodolistsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // バリデーション
+        $request->validate([
+            'content' => 'required|max:255',
+        ]);
+        
        // todoを作成
         $todolist = new Todolist;
         $todolist->content = $request->content;
@@ -98,6 +103,11 @@ class TodolistsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $request->validate([
+            'content' => 'required|max:255',
+        ]);
+        
         // idの値でtodoを検索して取得
         $todolist = Todolist::findOrFail($id);
         // todoを更新
